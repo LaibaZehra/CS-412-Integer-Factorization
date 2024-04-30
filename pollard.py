@@ -1,4 +1,4 @@
-#add pollard rho here (geeks for geeks)
+#add pollard rho here (geeks for geeks) - recursive
 
 # Python 3 program to find a prime factor of composite using
 # Pollard's Rho algorithm
@@ -26,7 +26,7 @@ def modular_pow(base, exponent,modulus):
 	return result
 
 # method to return prime divisor for n
-def PollardRho( n):
+def PollardRho(n,i):
 
 	# no prime divisor for 1
 	if (n == 1):
@@ -65,12 +65,23 @@ def PollardRho( n):
 		# retry if the algorithm fails to find prime factor
 		# with chosen x and c
 		if (d == n):
-			return PollardRho(n)
+			if i <= 3:
+				return PollardRho(n,i+1)
+			else:
+				return n
 
-	return d
+		return d
 
 # Driver function
 if __name__ == "__main__":
-  n = 20
-  a = PollardRho(n)
-  print("Factors of", n, "are", a, "and", n//a)
+  n = 27
+  m = n
+  f = []
+  a = PollardRho(n,1)
+  f.append(a)
+  n = n // a
+  while n != 1:
+    a = PollardRho(n,1)
+    f.append(a)
+    n = n // a
+  print("Factors of", m, "are", f)
