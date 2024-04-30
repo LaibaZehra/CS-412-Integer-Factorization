@@ -476,7 +476,7 @@ def estimate_smoothness_bound(N):
 # interval_size = estimate_interval_size(N)
 
 
-N = 757686 # Example number to factor
+N = 770989 # Example number to factor
 F = estimate_smoothness_bound(N)
 
 print("Factor base size:", F)
