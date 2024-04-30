@@ -53,17 +53,18 @@ def find_prime_factors(n):
 
     return prime_factors
 
-# Function to run the prime factorization for a range of numbers
-def run_on_range(start, end):
-    results = {}
-    for number in range(start, end + 1):
-        prime_factors = find_prime_factors(number)
-        results[number] = prime_factors
-    return results
+print(find_prime_factors(8051))
+# # Function to run the prime factorization for a range of numbers
+# def run_on_range(start, end):
+#     results = {}
+#     for number in range(start, end + 1):
+#         prime_factors = find_prime_factors(number)
+#         results[number] = prime_factors
+#     return results
 
-# Get prime factors for all numbers from 1 to 1000
-results = run_on_range(1, 500)
+# # Get prime factors for all numbers from 1 to 1000
+# results = run_on_range(1, 500)
 
-# Display results
-for number, prime_factors in results.items():
-    print(f"Number {number}: Prime factors: {prime_factors}")
+# # Display results
+# for number, prime_factors in results.items():
+#     print(f"Number {number}: Prime factors: {prime_factors}")
