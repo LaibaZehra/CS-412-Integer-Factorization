@@ -1,4 +1,4 @@
-import time
+import timeit
 import matplotlib.pyplot as plt
 import brute_force
 import fermat
@@ -11,10 +11,7 @@ end = 10000
 
 # Function to measure time for a given factorization method
 def measure_time(factorization_function, n):
-    start_time = time.time()
-    factorization_function(n)
-    return time.time() - start_time
-
+    return timeit.timeit(lambda: factorization_function(n), number=1)
 # Collecting data for plotting
 times_brute_force = []
 times_fermat = []
