@@ -38,6 +38,7 @@ def dixon_factorization(n):
     base = [2, 3, 5, 7]
     start = int(sqrt(n))
     pairs = []
+    factors = []
 
     # Find related squares using the factor base
     for i in range(start, n):
@@ -46,13 +47,16 @@ def dixon_factorization(n):
             rhs = b**2 % n
             if lhs == rhs:
                 pairs.append([i, b])
+                factor = gcd(i - b, n)
+                if factor != 1 and factor not in factors:
+                    factors.append(factor)
 
-    factors = []
+    
     # Calculate GCDs and extract unique factors
-    for p in pairs:
-        factor = gcd(p[0] - p[1], n)
-        if factor != 1 and factor not in factors:
-            factors.append(factor)
+    # for p in pairs:
+    #     factor = gcd(p[0] - p[1], n)
+    #     if factor != 1 and factor not in factors:
+    #         factors.append(factor)
 
     # Recursively find prime factors for all extracted factors
     prime_factors = []
@@ -62,16 +66,17 @@ def dixon_factorization(n):
     return list(np.unique(prime_factors))
 
 # Function to run the prime factorization for a range of numbers
-def run_on_range(start, end):
-    results = {}
-    for number in range(start, end + 1):
-        prime_factors = dixon_factorization(number)
-        results[number] = prime_factors
-    return results
+# def run_on_range(start, end):
+#     results = {}
+#     for number in range(start, end + 1):
+#         prime_factors = dixon_factorization(number)
+#         results[number] = prime_factors
+#     return results
 
-# Get prime factors for all numbers from 1 to 1000
-results = run_on_range(1, 500)
+# # Get prime factors for all numbers from 1 to 1000
+# results = run_on_range(1, 500)
 
-# Display results
-for number, prime_factors in results.items():
-    print(f"Number {number}: Prime factors: {prime_factors}")
+# # Display results
+# for number, prime_factors in results.items():
+#     print(f"Number {number}: Prime factors: {prime_factors}")
+print(dixon_factorization(20))

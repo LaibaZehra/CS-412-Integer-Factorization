@@ -53,7 +53,7 @@ def find_prime_factors(n):
 
     return prime_factors
 
-print(find_prime_factors(8051))
+print(find_prime_factors(270))
 # # Function to run the prime factorization for a range of numbers
 # def run_on_range(start, end):
 #     results = {}
