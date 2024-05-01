@@ -22,11 +22,10 @@ def prime_factors(n):
     divisor += 1
   return factors
 
-# def main():
+def main():
+  n = 20
+  factors = prime_factors(n)
+  print(f"The prime factors of {n} are: {factors}")
 
-#   n = 796860999999
-#   factors = prime_factors(n)
-#   print(f"The prime factors of {n} are: {factors}")
-
-# if __name__ == "__main__":
-#   main()
+if __name__ == "__main__":
+  main()

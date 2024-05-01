@@ -10,15 +10,9 @@ def func(a):
 	return x
 
 def PollardRho(n):
-	if (n == 1):
-		return n
-
-	if (n % 2 == 0):
-		return 2
-
 	d = 1
-	x = 2
-	y = 2
+	x = 1
+	y = 1
 
 	while (d == 1):
 		x = (func(x))%n
@@ -41,7 +35,7 @@ def find_prime_factors(n):
 		return 'prime'
 	return f
 
-print(find_prime_factors(757686))
+print(find_prime_factors(1))
 # def run_on_range(start, end):
 #     results = {}
 #     for number in range(start, end + 1):
