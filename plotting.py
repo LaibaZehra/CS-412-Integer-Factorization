@@ -7,7 +7,7 @@ import Dixon
 
 # Range of numbers to test
 start = 1
-end = 10_000
+end = 10000
 
 # Function to measure time for a given factorization method
 def measure_time(factorization_function, n):
@@ -21,8 +21,9 @@ times_fermat = []
 times_pollard = []
 times_dixon = []
 prime_factors_count = {}
+r = range(start, end + 1, 500)
 
-for n in range(start, end + 1):
+for n in r:
     # Measure time for each factorization algorithm
     times_brute_force.append(measure_time(brute_force.prime_factors, n))
     times_fermat.append(measure_time(fermat.find_prime_factors, n))
@@ -40,7 +41,7 @@ for n in range(start, end + 1):
 # Plotting the time complexity for each algorithm
 # Brute Force
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), times_brute_force, linestyle='-', marker='o', markersize=3, label='Brute Force')
+plt.plot(r, times_brute_force, linestyle='-', marker='o', markersize=3, label='Brute Force')
 plt.xlabel('Number')
 plt.ylabel('Time (seconds)')
 plt.title('Time Complexity for Brute Force Algorithm')
@@ -49,7 +50,7 @@ plt.show()
 
 # Fermat
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), times_fermat, linestyle='--', marker='x', markersize=3, label='Fermat')
+plt.plot(r, times_fermat, linestyle='--', marker='x', markersize=3, label='Fermat')
 plt.xlabel('Number')
 plt.ylabel('Time (seconds)')
 plt.title('Time Complexity for Fermat Algorithm')
@@ -58,7 +59,7 @@ plt.show()
 
 # Pollard Rho
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), times_pollard, linestyle='-.', marker='s', markersize=3, label='Pollard Rho')
+plt.plot(r, times_pollard, linestyle='-.', marker='s', markersize=3, label='Pollard Rho')
 plt.xlabel('Number')
 plt.ylabel('Time (seconds)')
 plt.title('Time Complexity for Pollard Rho Algorithm')
@@ -67,7 +68,7 @@ plt.show()
 
 # Dixon
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), times_dixon, linestyle=':', marker='^', markersize=3, label='Dixon')
+plt.plot(r, times_dixon, linestyle=':', marker='^', markersize=3, label='Dixon')
 plt.xlabel('Number')
 plt.ylabel('Time (seconds)')
 plt.title('Time Complexity for Dixon Algorithm')
@@ -77,7 +78,7 @@ plt.show()
 # Plotting the prime factor count for each algorithm
 # Brute Force
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), [prime_factors_count[n]['brute_force'] for n in range(start, end + 1)], linestyle='-', marker='o', markersize=3, label='Brute Force')
+plt.plot(r, [prime_factors_count[n]['brute_force'] for n in range(start, end + 1)], linestyle='-', marker='o', markersize=3, label='Brute Force')
 plt.xlabel('Number')
 plt.ylabel('Number of Prime Factors')
 plt.title('Prime Factor Count for Brute Force Algorithm')
@@ -86,7 +87,7 @@ plt.show()
 
 # Fermat
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), [prime_factors_count[n]['fermat'] for n in range(start, end + 1)], linestyle='--', marker='x', markersize=3, label='Fermat')
+plt.plot(r, [prime_factors_count[n]['fermat'] for n in range(start, end + 1)], linestyle='--', marker='x', markersize=3, label='Fermat')
 plt.xlabel('Number')
 plt.ylabel('Number of Prime Factors')
 plt.title('Prime Factor Count for Fermat Algorithm')
@@ -95,7 +96,7 @@ plt.show()
 
 # Pollard Rho
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), [prime_factors_count[n]['pollard'] for n in range(start, end + 1)], linestyle='-.', marker='s', markersize=3, label='Pollard Rho')
+plt.plot(r, [prime_factors_count[n]['pollard'] for n in range(start, end + 1)], linestyle='-.', marker='s', markersize=3, label='Pollard Rho')
 plt.xlabel('Number')
 plt.ylabel('Number of Prime Factors')
 plt.title('Prime Factor Count for Pollard Rho Algorithm')
@@ -104,7 +105,7 @@ plt.show()
 
 # Dixon
 plt.figure(figsize=(12, 8))
-plt.plot(range(start, end + 1), [prime_factors_count[n]['dixon'] for n in range(start, end + 1)], linestyle=':', marker='^', markersize=3, label='Dixon')
+plt.plot(r, [prime_factors_count[n]['dixon'] for n in range(start, end + 1)], linestyle=':', marker='^', markersize=3, label='Dixon')
 plt.xlabel('Number')
 plt.ylabel('Number of Prime Factors')
 plt.title('Prime Factor Count for Dixon Algorithm')
